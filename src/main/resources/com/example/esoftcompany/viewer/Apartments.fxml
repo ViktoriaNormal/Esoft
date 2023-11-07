@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.esoftcompany.controller.ApartmentsController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <AnchorPane prefHeight="96.0" prefWidth="1200.0" style="-fx-background-color: #ff9c1a;" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label layoutX="332.0" layoutY="16.0" text="Фильтры:" textFill="#37474f" AnchorPane.leftAnchor="332.0" AnchorPane.topAnchor="16.0">
+                     <font>
+                        <Font name="Tw Cen MT Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="509.0" layoutY="17.0" text="жилищный комплекс" textFill="#37474f" AnchorPane.leftAnchor="466.0" AnchorPane.topAnchor="17.0">
+                     <font>
+                        <Font name="Tw Cen MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="872.0" layoutY="15.0" text="дом" textFill="#37474f" AnchorPane.leftAnchor="835.0" AnchorPane.topAnchor="15.0">
+                     <font>
+                        <Font name="Tw Cen MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="comboBoxHouse" editable="true" layoutX="909.0" layoutY="3.0" onAction="#enterOrChoiceHouse" prefHeight="22.0" prefWidth="200.0" promptText="Номер дома" style="-fx-background-color: #ffffff;" AnchorPane.leftAnchor="873.0" AnchorPane.topAnchor="10.0" />
+                  <ComboBox fx:id="porch" editable="true" layoutX="909.0" layoutY="51.0" onAction="#enterOrChoicePorch" prefHeight="22.0" prefWidth="200.0" promptText="Номер секции (подъезда)" style="-fx-background-color: #ffffff;" AnchorPane.leftAnchor="873.0" AnchorPane.topAnchor="48.0" />
+                  <ChoiceBox fx:id="status" layoutX="300.0" layoutY="51.0" prefHeight="22.0" prefWidth="150.0" style="-fx-background-color: #ffffff;" AnchorPane.leftAnchor="383.0" AnchorPane.topAnchor="48.0" />
+                  <Label layoutX="852.0" layoutY="53.0" text="секция" textFill="#37474f" AnchorPane.leftAnchor="819.0">
+                     <font>
+                        <Font name="Tw Cen MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="comboBoxComplex" editable="true" layoutX="636.0" layoutY="11.0" onAction="#enterOrChoiceComplex" prefHeight="22.0" prefWidth="200.0" promptText="Название ЖК" style="-fx-background-color: #ffffff;" AnchorPane.leftAnchor="597.0" AnchorPane.topAnchor="10.0" />
+                  <ComboBox fx:id="floor" editable="true" layoutX="636.0" layoutY="59.0" onAction="#enterOrChoiceFloor" prefHeight="22.0" prefWidth="200.0" promptText="Номер этажа" style="-fx-background-color: #ffffff;" AnchorPane.leftAnchor="597.0" AnchorPane.topAnchor="48.0" />
+                  <Label layoutX="581.0" layoutY="53.0" text="этаж" textFill="#37474f" AnchorPane.leftAnchor="555.0">
+                     <font>
+                        <Font name="Tw Cen MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="385.0" layoutY="53.0" text="статус" textFill="#37474f" AnchorPane.leftAnchor="332.0">
+                     <font>
+                        <Font name="Tw Cen MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="750.0" prefWidth="290.0" style="-fx-background-color: #ff9c1a;">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="45.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="45.39999999999998" AnchorPane.topAnchor="96.0">
+                     <image>
+                        <Image url="@../logo.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="navLivingComplexes" layoutX="5.0" layoutY="300.0" mnemonicParsing="false" onAction="#toLivingComplexes" prefHeight="38.0" prefWidth="280.0" style="-fx-background-color: #ffffff;" text="Жилищные комплексы" textFill="#37474f" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="300.0">
+                     <font>
+                        <Font name="Tw Cen MT Bold" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Button>
+                  <Button fx:id="navHouses" layoutX="5.0" layoutY="340.0" mnemonicParsing="false" onAction="#toHouses" prefHeight="38.0" prefWidth="280.0" style="-fx-background-color: #ffffff;" text="Дома" textFill="#37474f" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="354.0">
+                     <font>
+                        <Font name="Tw Cen MT Bold" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Button>
+                  <Button fx:id="navApartments" layoutX="5.0" layoutY="380.0" mnemonicParsing="false" onAction="#toApartments" prefHeight="38.0" prefWidth="280.0" style="-fx-background-color: #ffffff;" text="Квартиры" textFill="#37474f" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="408.0">
+                     <font>
+                        <Font name="Tw Cen MT Bold" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Button>
+                  <Button fx:id="navReporting" layoutX="5.0" layoutY="420.0" mnemonicParsing="false" onAction="#toReporting" prefHeight="38.0" prefWidth="280.0" style="-fx-background-color: #ffffff;" text="Отчётность" textFill="#37474f" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="462.0">
+                     <font>
+                        <Font name="Tw Cen MT Bold" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Button>
+                  <Label layoutX="114.0" layoutY="218.0" text="Квартиры" textFill="#37474f" AnchorPane.bottomAnchor="514.8" AnchorPane.topAnchor="218.0">
+                     <font>
+                        <Font name="Tw Cen MT Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Line endX="144.9000244140625" endY="-6.300018310546875" layoutX="145.0" layoutY="209.0" startX="-145.00001525878906" startY="-6.300018310546875" stroke="WHITE" AnchorPane.leftAnchor="-0.5000152587890625" AnchorPane.topAnchor="202.0" />
+                  <Line endX="144.9000244140625" endY="-6.300018310546875" layoutX="144.0" layoutY="254.0" startX="-145.00001525878906" startY="-6.300018310546875" stroke="WHITE" AnchorPane.topAnchor="248.0" />
+               </children>
+            </AnchorPane>
+            <Line endX="-189.5999755859375" endY="583.7999877929688" layoutX="480.0" layoutY="165.0" startX="-189.5999755859375" startY="-165.0" stroke="WHITE" />
+            <Pagination fx:id="pagination" prefHeight="562.0" prefWidth="890.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="106.0" />
+            <TableView fx:id="apartmentsTable" layoutX="300.0" layoutY="112.0" onSort="#sortApartmentsTable" prefHeight="481.0" prefWidth="890.0" style="-fx-border-color: #ff9c1a; -fx-background-color: #ffffff;" AnchorPane.bottomAnchor="142.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="106.0">
+               <columns>
+                  <TableColumn fx:id="tableComplex" prefWidth="179.0" style="-fx-background-color: #ff9c1a;" text="Жилой комплекс" />
+                  <TableColumn fx:id="tableAddress" prefWidth="220.0" style="-fx-background-color: #ff9c1a;" text="Адрес" />
+                  <TableColumn fx:id="tableArea" prefWidth="104.0" style="-fx-background-color: #ff9c1a;" text="Площадь кв." />
+                  <TableColumn fx:id="tableNumberRooms" prefWidth="94.0" style="-fx-background-color: #ff9c1a;" text="Кол-во комнат" />
+                  <TableColumn fx:id="tablePorch" prefWidth="55.0" style="-fx-background-color: #ff9c1a;" text="Секция" />
+                  <TableColumn fx:id="tableFloor" prefWidth="55.0" style="-fx-background-color: #ff9c1a;" text="Этаж" />
+                  <TableColumn fx:id="tableStatus" prefWidth="179.0" style="-fx-background-color: #ff9c1a;" text="Статус" />
+               </columns>
+            </TableView>
+            <Button fx:id="editing" layoutX="528.0" layoutY="688.0" mnemonicParsing="false" onAction="#edit" prefHeight="38.0" prefWidth="180.0" style="-fx-background-color: #ff9c1a;" text="Редактировать" textFill="#37474f" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="402.0">
+               <font>
+                  <Font name="Tw Cen MT Bold" size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Button>
+            <Button fx:id="deletion" layoutX="745.0" layoutY="688.0" mnemonicParsing="false" onAction="#delete" prefHeight="38.0" prefWidth="180.0" style="-fx-background-color: #ff9c1a;" text="Удалить" textFill="#37474f" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="206.0">
+               <font>
+                  <Font name="Tw Cen MT Bold" size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Button>
+            <Button fx:id="creation" layoutX="988.0" layoutY="688.0" mnemonicParsing="false" onAction="#createNewApartment" prefHeight="38.0" prefWidth="180.0" style="-fx-background-color: #ff9c1a;" text="Создать новую квартиру" textFill="#37474f" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+               <font>
+                  <Font name="Tw Cen MT Bold" size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Button>
+            <Button fx:id="begining" layoutX="545.0" layoutY="624.0" mnemonicParsing="false" onAction="#toBegining" prefHeight="30.0" style="-fx-background-color: #ff9c1a;" text="В начало" textFill="#37474f" AnchorPane.topAnchor="624.0">
+               <font>
+                  <Font name="Tw Cen MT" size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="end" layoutX="889.0" layoutY="624.0" mnemonicParsing="false" onAction="#toEnd" prefHeight="30.0" style="-fx-background-color: #ff9c1a;" text="В конец" textFill="#37474f" AnchorPane.topAnchor="624.0">
+               <font>
+                  <Font name="Tw Cen MT" size="10.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
