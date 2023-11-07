@@ -12,7 +12,6 @@ public class House {
 
     @ManyToOne(cascade = {CascadeType.REMOVE, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "id_complex")
-    @Column(nullable=false)
     private LivingComplex complex;
 
     @Column(nullable=false, length=255)
@@ -26,6 +25,8 @@ public class House {
 
     @Column(nullable=false)
     private int house_construction_costs;
+
+    public House() {}
 
     public House(LivingComplex complex, String street, String house_number, int house_added_value_construction, int house_construction_costs) {
         this.complex = complex;

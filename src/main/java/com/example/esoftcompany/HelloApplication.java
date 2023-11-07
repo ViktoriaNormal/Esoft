@@ -1,5 +1,6 @@
 package com.example.esoftcompany;
 
+import com.example.esoftcompany.container.ApartmentContainer;
 import com.example.esoftcompany.util.HibernateUtil;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -37,6 +38,8 @@ public class HelloApplication extends Application {
     public static void main(String[] args) throws SQLException {
         HibernateUtil hibernateUtil = new HibernateUtil();
 
+        ApartmentContainer list = new ApartmentContainer();
+        System.out.println(list.getApartments().get(1).getId_apartment());
         launch();
     }
 }

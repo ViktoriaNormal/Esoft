@@ -13,7 +13,6 @@ public class Apartment {
 
     @ManyToOne(cascade = {CascadeType.REMOVE, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "id_house")
-    @Column(nullable=false)
     private House house;
 
     @Column(nullable=false)
@@ -39,6 +38,8 @@ public class Apartment {
 
     @Column(nullable=false)
     private int costs_finishing;
+
+    public Apartment() {}
 
     public Apartment(House house, int apartment_number, int area, int number_rooms, int porch, int floor,
                      String apartment_status, int additional_cost_finishing, int costs_finishing) {

@@ -17,7 +17,6 @@ public class HibernateUtil {
                     .addAnnotatedClass(House.class)
                     .addAnnotatedClass(LivingComplex.class)
                     .buildSessionFactory();
-
     }
 
     public static SessionFactory getSessionFactory() {

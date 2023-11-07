@@ -26,6 +26,8 @@ public class LivingComplex {
     @Column(nullable=false)
     private int complex_construction_costs;
 
+    public LivingComplex() {}
+
     public LivingComplex(String complex_name, String complex_city, String complex_status,
                          int complex_added_value_construction, int complex_construction_costs) {
         this.complex_name = complex_name;
