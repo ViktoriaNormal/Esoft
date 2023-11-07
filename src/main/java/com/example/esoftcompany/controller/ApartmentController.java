@@ -2,6 +2,8 @@ package com.example.esoftcompany.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.example.esoftcompany.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -78,7 +80,7 @@ public class ApartmentController {
 
     @FXML
     void comeBack(ActionEvent event) {
-
+        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Apartments.fxml");
     }
 
     @FXML
@@ -123,44 +125,26 @@ public class ApartmentController {
 
     @FXML
     void toApartments(ActionEvent event) {
-
+        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Apartments.fxml");
     }
 
     @FXML
     void toHouses(ActionEvent event) {
-
+        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Houses.fxml");
     }
 
     @FXML
     void toLivingComplexes(ActionEvent event) {
-
+        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Living_complexes.fxml");
     }
 
     @FXML
     void toReporting(ActionEvent event) {
-
+        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Reporting.fxml");
     }
 
     @FXML
     void initialize() {
-        assert additionalCostFinishing != null : "fx:id=\"additionalCostFinishing\" was not injected: check your FXML file 'Apartment.fxml'.";
-        assert apartmentArea != null : "fx:id=\"apartmentArea\" was not injected: check your FXML file 'Apartment.fxml'.";
-        assert apartmentNumber != null : "fx:id=\"apartmentNumber\" was not injected: check your FXML file 'Apartment.fxml'.";
-        assert back != null : "fx:id=\"back\" was not injected: check your FXML file 'Apartment.fxml'.";
-        assert cancellation != null : "fx:id=\"cancellation\" was not injected: check your FXML file 'Apartment.fxml'.";
-        assert choiceHouse != null : "fx:id=\"choiceHouse\" was not injected: check your FXML file 'Apartment.fxml'.";
-        assert choiceLivingComplex != null : "fx:id=\"choiceLivingComplex\" was not injected: check your FXML file 'Apartment.fxml'.";
-        assert companyCostsFinishing != null : "fx:id=\"companyCostsFinishing\" was not injected: check your FXML file 'Apartment.fxml'.";
-        assert floor != null : "fx:id=\"floor\" was not injected: check your FXML file 'Apartment.fxml'.";
-        assert navApartments != null : "fx:id=\"navApartments\" was not injected: check your FXML file 'Apartment.fxml'.";
-        assert navHouses != null : "fx:id=\"navHouses\" was not injected: check your FXML file 'Apartment.fxml'.";
-        assert navLivingComplexes != null : "fx:id=\"navLivingComplexes\" was not injected: check your FXML file 'Apartment.fxml'.";
-        assert navReporting != null : "fx:id=\"navReporting\" was not injected: check your FXML file 'Apartment.fxml'.";
-        assert numberOfRooms != null : "fx:id=\"numberOfRooms\" was not injected: check your FXML file 'Apartment.fxml'.";
-        assert porch != null : "fx:id=\"porch\" was not injected: check your FXML file 'Apartment.fxml'.";
-        assert saving != null : "fx:id=\"saving\" was not injected: check your FXML file 'Apartment.fxml'.";
-        assert status != null : "fx:id=\"status\" was not injected: check your FXML file 'Apartment.fxml'.";
-        assert windowTitle != null : "fx:id=\"windowTitle\" was not injected: check your FXML file 'Apartment.fxml'.";
 
     }
 

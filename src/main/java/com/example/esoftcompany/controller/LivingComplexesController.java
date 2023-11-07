@@ -2,6 +2,8 @@ package com.example.esoftcompany.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.example.esoftcompany.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -68,7 +70,7 @@ public class LivingComplexesController {
 
     @FXML
     void createNewComplex(ActionEvent event) {
-
+        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Living_complex.fxml");
     }
 
     @FXML
@@ -78,7 +80,7 @@ public class LivingComplexesController {
 
     @FXML
     void edit(ActionEvent event) {
-
+        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Living_complex.fxml");
     }
 
     @FXML
@@ -93,40 +95,26 @@ public class LivingComplexesController {
 
     @FXML
     void toApartments(ActionEvent event) {
-
+        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Apartments.fxml");
     }
 
     @FXML
     void toHouses(ActionEvent event) {
-
+        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Houses.fxml");
     }
 
     @FXML
     void toLivingComplexes(ActionEvent event) {
-
+        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Living_complexes.fxml");
     }
 
     @FXML
     void toReporting(ActionEvent event) {
-
+        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Reporting.fxml");
     }
 
     @FXML
     void initialize() {
-        assert choiceBoxStatus != null : "fx:id=\"choiceBoxStatus\" was not injected: check your FXML file 'Living_complexes.fxml'.";
-        assert comboBoxCity != null : "fx:id=\"comboBoxCity\" was not injected: check your FXML file 'Living_complexes.fxml'.";
-        assert complexesTable != null : "fx:id=\"complexesTable\" was not injected: check your FXML file 'Living_complexes.fxml'.";
-        assert creation != null : "fx:id=\"creation\" was not injected: check your FXML file 'Living_complexes.fxml'.";
-        assert deletion != null : "fx:id=\"deletion\" was not injected: check your FXML file 'Living_complexes.fxml'.";
-        assert editing != null : "fx:id=\"editing\" was not injected: check your FXML file 'Living_complexes.fxml'.";
-        assert navApartments != null : "fx:id=\"navApartments\" was not injected: check your FXML file 'Living_complexes.fxml'.";
-        assert navHouses != null : "fx:id=\"navHouses\" was not injected: check your FXML file 'Living_complexes.fxml'.";
-        assert navLivingComplexes != null : "fx:id=\"navLivingComplexes\" was not injected: check your FXML file 'Living_complexes.fxml'.";
-        assert navReporting != null : "fx:id=\"navReporting\" was not injected: check your FXML file 'Living_complexes.fxml'.";
-        assert quantityHouses != null : "fx:id=\"quantityHouses\" was not injected: check your FXML file 'Living_complexes.fxml'.";
-        assert tableCity != null : "fx:id=\"tableCity\" was not injected: check your FXML file 'Living_complexes.fxml'.";
-        assert tableComplex != null : "fx:id=\"tableComplex\" was not injected: check your FXML file 'Living_complexes.fxml'.";
-        assert tableStatus != null : "fx:id=\"tableStatus\" was not injected: check your FXML file 'Living_complexes.fxml'.";
 
     }
 

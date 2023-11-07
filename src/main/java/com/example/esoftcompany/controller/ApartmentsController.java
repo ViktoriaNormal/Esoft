@@ -2,6 +2,8 @@ package com.example.esoftcompany.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.example.esoftcompany.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -90,7 +92,7 @@ public class ApartmentsController {
 
     @FXML
     void createNewApartment(ActionEvent event) {
-
+        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Apartment.fxml");
     }
 
     @FXML
@@ -100,7 +102,7 @@ public class ApartmentsController {
 
     @FXML
     void edit(ActionEvent event) {
-
+        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Apartment.fxml");
     }
 
     @FXML
@@ -129,11 +131,6 @@ public class ApartmentsController {
     }
 
     @FXML
-    void toApartments(ActionEvent event) {
-
-    }
-
-    @FXML
     void toBegining(ActionEvent event) {
 
     }
@@ -144,45 +141,27 @@ public class ApartmentsController {
     }
 
     @FXML
-    void toHouses(ActionEvent event) {
+    void toApartments(ActionEvent event) {
+        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Apartments.fxml");
+    }
 
+    @FXML
+    void toHouses(ActionEvent event) {
+        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Houses.fxml");
     }
 
     @FXML
     void toLivingComplexes(ActionEvent event) {
-
+        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Living_complexes.fxml");
     }
 
     @FXML
     void toReporting(ActionEvent event) {
-
+        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Reporting.fxml");
     }
 
     @FXML
     void initialize() {
-        assert apartmentsTable != null : "fx:id=\"apartmentsTable\" was not injected: check your FXML file 'Apartments.fxml'.";
-        assert begining != null : "fx:id=\"begining\" was not injected: check your FXML file 'Apartments.fxml'.";
-        assert comboBoxComplex != null : "fx:id=\"comboBoxComplex\" was not injected: check your FXML file 'Apartments.fxml'.";
-        assert comboBoxHouse != null : "fx:id=\"comboBoxHouse\" was not injected: check your FXML file 'Apartments.fxml'.";
-        assert creation != null : "fx:id=\"creation\" was not injected: check your FXML file 'Apartments.fxml'.";
-        assert deletion != null : "fx:id=\"deletion\" was not injected: check your FXML file 'Apartments.fxml'.";
-        assert editing != null : "fx:id=\"editing\" was not injected: check your FXML file 'Apartments.fxml'.";
-        assert end != null : "fx:id=\"end\" was not injected: check your FXML file 'Apartments.fxml'.";
-        assert floor != null : "fx:id=\"floor\" was not injected: check your FXML file 'Apartments.fxml'.";
-        assert navApartments != null : "fx:id=\"navApartments\" was not injected: check your FXML file 'Apartments.fxml'.";
-        assert navHouses != null : "fx:id=\"navHouses\" was not injected: check your FXML file 'Apartments.fxml'.";
-        assert navLivingComplexes != null : "fx:id=\"navLivingComplexes\" was not injected: check your FXML file 'Apartments.fxml'.";
-        assert navReporting != null : "fx:id=\"navReporting\" was not injected: check your FXML file 'Apartments.fxml'.";
-        assert pagination != null : "fx:id=\"pagination\" was not injected: check your FXML file 'Apartments.fxml'.";
-        assert porch != null : "fx:id=\"porch\" was not injected: check your FXML file 'Apartments.fxml'.";
-        assert status != null : "fx:id=\"status\" was not injected: check your FXML file 'Apartments.fxml'.";
-        assert tableAddress != null : "fx:id=\"tableAddress\" was not injected: check your FXML file 'Apartments.fxml'.";
-        assert tableArea != null : "fx:id=\"tableArea\" was not injected: check your FXML file 'Apartments.fxml'.";
-        assert tableComplex != null : "fx:id=\"tableComplex\" was not injected: check your FXML file 'Apartments.fxml'.";
-        assert tableFloor != null : "fx:id=\"tableFloor\" was not injected: check your FXML file 'Apartments.fxml'.";
-        assert tableNumberRooms != null : "fx:id=\"tableNumberRooms\" was not injected: check your FXML file 'Apartments.fxml'.";
-        assert tablePorch != null : "fx:id=\"tablePorch\" was not injected: check your FXML file 'Apartments.fxml'.";
-        assert tableStatus != null : "fx:id=\"tableStatus\" was not injected: check your FXML file 'Apartments.fxml'.";
 
     }
 
