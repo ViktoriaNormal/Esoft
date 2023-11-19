@@ -1,45 +1,32 @@
 package com.example.esoftcompany;
 
-import com.example.esoftcompany.container.ApartmentContainer;
 import com.example.esoftcompany.util.HibernateUtil;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Objects;
 
 public class HelloApplication extends Application {
-    private static Stage stg;
-    @Override
-    public void start(Stage primaryStage) throws IOException {
-        stg = primaryStage;
-        primaryStage.setResizable(false);
-        primaryStage.setTitle("Esoft Application");
-        primaryStage.setScene(new Scene(FXMLLoader.load(Objects.requireNonNull(HelloApplication.class.getResource("/com/example/esoftcompany/viewer/Living_complexes.fxml")))));
-        primaryStage.show();
-    }
+    public static Stage stg;
 
-    public static Object changeScene(String fxml) {
-        try {
-            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource(fxml));
-            Parent pane = loader.load();
-            stg.setScene(new Scene(pane));
-            return loader.getController();
-        } catch (Exception e) {
-            e.printStackTrace();
+    public void start(Stage stage) {
+        try{
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/esoftcompany/viewer/Living_complexes.fxml")));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-        return null;
     }
 
     public static void main(String[] args) throws SQLException {
         HibernateUtil hibernateUtil = new HibernateUtil();
 
-        ApartmentContainer list = new ApartmentContainer();
-        System.out.println(list.getApartments().get(1).getId_apartment());
         launch();
     }
 }

@@ -2,6 +2,8 @@ package com.example.esoftcompany.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="houses")
 public class House {
@@ -25,6 +27,28 @@ public class House {
 
     @Column(nullable=false)
     private int house_construction_costs;
+
+    @OneToMany(cascade = {CascadeType.REMOVE, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_house")
+    private List<Apartment> apartments;
+
+    public int getCounter_sold() {
+        int count = 0;
+        for (Apartment apartment : apartments) {
+            if (apartment.getApartment_status().equals("sold"))
+                count++;
+        }
+        return count;
+    }
+
+    public int getCounter_ready() {
+        int count = 0;
+        for (Apartment apartment : apartments) {
+            if (apartment.getApartment_status().equals("ready"))
+                count++;
+        }
+        return count;
+    }
 
     public House() {}
 
@@ -82,6 +106,15 @@ public class House {
 
     public void setHouse_construction_costs(int house_construction_costs) {
         this.house_construction_costs = house_construction_costs;
+    }
+
+    public String getStatus() {
+        return complex.getComplex_status();
+    }
+
+
+    public String getComplex_name() {
+        return complex.getComplex_name();
     }
 }
 

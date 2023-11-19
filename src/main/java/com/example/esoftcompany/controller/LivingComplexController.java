@@ -1,9 +1,8 @@
 package com.example.esoftcompany.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import com.example.esoftcompany.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,7 +12,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
-public class LivingComplexController {
+public class LivingComplexController extends Load{
 
     @FXML
     private ResourceBundle resources;
@@ -66,8 +65,13 @@ public class LivingComplexController {
     @FXML
     private TableColumn<?, ?> street;
 
+
     @FXML
     private Label windowTitle;
+
+    public void setWindowLabel(String text) {
+        windowTitle.setText(text);
+    }
 
     @FXML
     void cancel(ActionEvent event) {
@@ -75,8 +79,8 @@ public class LivingComplexController {
     }
 
     @FXML
-    void comeBack(ActionEvent event) {
-        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Living_complexes.fxml");
+    void comeBack(ActionEvent event) throws IOException {
+        loadScene(event, "/com/example/esoftcompany/viewer/Living_complexes.fxml");
     }
 
     @FXML
@@ -110,23 +114,23 @@ public class LivingComplexController {
     }
 
     @FXML
-    void toApartments(ActionEvent event) {
-        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Apartments.fxml");
+    void toApartments(ActionEvent event) throws IOException {
+        loadScene(event, "/com/example/esoftcompany/viewer/Apartments.fxml");
     }
 
     @FXML
-    void toHouses(ActionEvent event) {
-        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Houses.fxml");
+    void toHouses(ActionEvent event) throws IOException {
+        loadScene(event, "/com/example/esoftcompany/viewer/Houses.fxml");
     }
 
     @FXML
-    void toLivingComplexes(ActionEvent event) {
-        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Living_complexes.fxml");
+    void toLivingComplexes(ActionEvent event) throws IOException {
+        loadScene(event, "/com/example/esoftcompany/viewer/Living_complexes.fxml");
     }
 
     @FXML
-    void toReporting(ActionEvent event) {
-        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Reporting.fxml");
+    void toReporting(ActionEvent event) throws IOException {
+        loadScene(event, "/com/example/esoftcompany/viewer/Reporting.fxml");
     }
 
     @FXML

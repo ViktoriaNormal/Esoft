@@ -2,8 +2,6 @@ package com.example.esoftcompany.dao;
 
 import com.example.esoftcompany.util.HibernateUtil;
 import jakarta.persistence.RollbackException;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

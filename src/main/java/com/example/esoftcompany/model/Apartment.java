@@ -1,7 +1,7 @@
 package com.example.esoftcompany.model;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.Formula;
 
 @Entity
 @Table(name="apartments")
@@ -39,6 +39,9 @@ public class Apartment {
     @Column(nullable=false)
     private int costs_finishing;
 
+    @Formula(value = "0")
+    private int cost;
+
     public Apartment() {}
 
     public Apartment(House house, int apartment_number, int area, int number_rooms, int porch, int floor,
@@ -52,6 +55,15 @@ public class Apartment {
         this.apartment_status = apartment_status;
         this.additional_cost_finishing = additional_cost_finishing;
         this.costs_finishing = costs_finishing;
+        this.cost = 0;
+    }
+
+    public int getCost() {
+        return cost;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
     }
 
     public int getId_apartment() {
@@ -133,6 +145,18 @@ public class Apartment {
     public void setCosts_finishing(int costs_finishing) {
         this.costs_finishing = costs_finishing;
     }
+
+    public String getAddress() {
+        return "ул. " + house.getStreet() + " " + house.getHouse_number();
+    }
+
+    public String getComplex() {
+        return house.getComplex().getComplex_name();
+    }
 }
 
+//fx:controller="com.example.esoftcompany.controller.ApartmentsController"
+//fx:controller="com.example.esoftcompany.controller.HousesController"
+//fx:controller="com.example.esoftcompany.controller.LivingComplexesController"
+//fx:controller="com.example.esoftcompany.controller.ReportingController"
 

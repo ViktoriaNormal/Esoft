@@ -1,6 +1,11 @@
 package com.example.esoftcompany.model;
 
+import com.example.esoftcompany.container.LivingComplexContainer;
+import com.example.esoftcompany.dao.LivingComplexDao;
 import jakarta.persistence.*;
+import org.hibernate.annotations.Formula;
+
+import java.util.List;
 
 @Entity
 @Table(name="living_complexes")
@@ -26,6 +31,10 @@ public class LivingComplex {
     @Column(nullable=false)
     private int complex_construction_costs;
 
+    @OneToMany(cascade = {CascadeType.REMOVE, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_complex")
+    private List<House> houses;
+
     public LivingComplex() {}
 
     public LivingComplex(String complex_name, String complex_city, String complex_status,
@@ -35,6 +44,10 @@ public class LivingComplex {
         this.complex_status = complex_status;
         this.complex_added_value_construction = complex_added_value_construction;
         this.complex_construction_costs = complex_construction_costs;
+    }
+
+    public int getCounter() {
+        return houses.size();
     }
 
     public int getId_complex() {
@@ -83,6 +96,11 @@ public class LivingComplex {
 
     public void setComplex_construction_costs(int complex_construction_costs) {
         this.complex_construction_costs = complex_construction_costs;
+    }
+
+    public int complexHouses() {
+        LivingComplexDao livingComplexDao = new LivingComplexDao();
+        return livingComplexDao.counterHousesByComplex(this);
     }
 }
 

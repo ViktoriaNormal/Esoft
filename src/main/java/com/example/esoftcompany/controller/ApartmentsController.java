@@ -1,28 +1,36 @@
 package com.example.esoftcompany.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.example.esoftcompany.HelloApplication;
+import com.example.esoftcompany.container.ApartmentContainer;
+import com.example.esoftcompany.model.Apartment;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Pagination;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+import static com.example.esoftcompany.HelloApplication.stg;
 
-public class ApartmentsController {
+public class ApartmentsController extends Load implements Initializable {
 
     @FXML
     private ResourceBundle resources;
 
     @FXML
     private URL location;
-
-    @FXML
-    private TableView<?> apartmentsTable;
 
     @FXML
     private Button begining;
@@ -61,6 +69,33 @@ public class ApartmentsController {
     private Button navReporting;
 
     @FXML
+    private Button saving;
+
+    @FXML
+    private TableView<Apartment> apartmentsTable;
+
+    @FXML
+    private TableColumn<Apartment, String> tableAddress;
+
+    @FXML
+    private TableColumn<Apartment, Integer> tableArea;
+
+    @FXML
+    private TableColumn<Apartment, String> tableComplex;
+
+    @FXML
+    private TableColumn<Apartment, Integer> tableFloor;
+
+    @FXML
+    private TableColumn<Apartment, Integer> tableNumberRooms;
+
+    @FXML
+    private TableColumn<Apartment, Integer> tablePorch;
+
+    @FXML
+    private TableColumn<Apartment, Integer> tableStatus;
+
+    @FXML
     private Pagination pagination;
 
     @FXML
@@ -70,29 +105,13 @@ public class ApartmentsController {
     private ChoiceBox<?> status;
 
     @FXML
-    private TableColumn<?, ?> tableAddress;
+    void savingFiltering(ActionEvent event) {
+
+    }
 
     @FXML
-    private TableColumn<?, ?> tableArea;
-
-    @FXML
-    private TableColumn<?, ?> tableComplex;
-
-    @FXML
-    private TableColumn<?, ?> tableFloor;
-
-    @FXML
-    private TableColumn<?, ?> tableNumberRooms;
-
-    @FXML
-    private TableColumn<?, ?> tablePorch;
-
-    @FXML
-    private TableColumn<?, ?> tableStatus;
-
-    @FXML
-    void createNewApartment(ActionEvent event) {
-        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Apartment.fxml");
+    void createNewApartment(ActionEvent event) throws IOException {
+        loadScene(event, "/com/example/esoftcompany/viewer/Apartment.fxml");
     }
 
     @FXML
@@ -101,8 +120,17 @@ public class ApartmentsController {
     }
 
     @FXML
-    void edit(ActionEvent event) {
-        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Apartment.fxml");
+    void edit(ActionEvent event) throws IOException {
+        String titleWindow = "Редактирование квартиры";
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/esoftcompany/viewer/Apartment.fxml"));
+        root = loader.load();
+        ApartmentController apartmentController = loader.getController();
+        apartmentController.setWindowLabel(titleWindow);
+
+        stg = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stg.setScene(scene);
+        stg.show();
     }
 
     @FXML
@@ -141,28 +169,50 @@ public class ApartmentsController {
     }
 
     @FXML
-    void toApartments(ActionEvent event) {
-        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Apartments.fxml");
+    void toApartments(ActionEvent event) throws IOException {
+        loadScene(event, "/com/example/esoftcompany/viewer/Apartments.fxml");
     }
 
     @FXML
-    void toHouses(ActionEvent event) {
-        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Houses.fxml");
+    void toHouses(ActionEvent event) throws IOException {
+        loadScene(event, "/com/example/esoftcompany/viewer/Houses.fxml");
     }
 
     @FXML
-    void toLivingComplexes(ActionEvent event) {
-        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Living_complexes.fxml");
+    void toLivingComplexes(ActionEvent event) throws IOException {
+        loadScene(event, "/com/example/esoftcompany/viewer/Living_complexes.fxml");
     }
 
     @FXML
-    void toReporting(ActionEvent event) {
-        HelloApplication.changeScene("/com/example/esoftcompany/viewer/Reporting.fxml");
+    void toReporting(ActionEvent event) throws IOException {
+        loadScene(event, "/com/example/esoftcompany/viewer/Reporting.fxml");
     }
 
     @FXML
     void initialize() {
 
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        changeViewer();
+    }
+
+    public void changeViewer() {
+        ApartmentContainer apartmentContainer = new ApartmentContainer();
+        ObservableList<Apartment> apartments = FXCollections.observableList(apartmentContainer.getApartments());
+        tableAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        tableArea.setCellValueFactory(new PropertyValueFactory<>("area"));
+        tableComplex.setCellValueFactory(new PropertyValueFactory<>("complex"));
+        tableFloor.setCellValueFactory(new PropertyValueFactory<>("floor"));
+        tableNumberRooms.setCellValueFactory(new PropertyValueFactory<>("number_rooms"));
+        tablePorch.setCellValueFactory(new PropertyValueFactory<>("porch"));
+        tableStatus.setCellValueFactory(new PropertyValueFactory<>("apartment_status"));
+        try {
+            apartmentsTable.setItems(apartments);
+        } catch (Exception e) {
+            throw new RuntimeException();
+        }
     }
 
 }
