@@ -98,10 +98,10 @@ public class ReportingController extends Load implements Initializable {
     private Label unsoldApartments;
 
     @FXML
-    private Button saving;
+    private Button clearing;
 
     @FXML
-    void savingFiltering(ActionEvent event) {
+    void clearFiltered(ActionEvent event) {
 
     }
 

@@ -155,8 +155,3 @@ public class Apartment {
     }
 }
 
-//fx:controller="com.example.esoftcompany.controller.ApartmentsController"
-//fx:controller="com.example.esoftcompany.controller.HousesController"
-//fx:controller="com.example.esoftcompany.controller.LivingComplexesController"
-//fx:controller="com.example.esoftcompany.controller.ReportingController"
-

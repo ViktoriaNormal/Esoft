@@ -81,10 +81,10 @@ public class HousesController extends Load implements Initializable {
     private Button navReporting;
 
     @FXML
-    private Button saving;
+    private Button clearing;
 
     @FXML
-    void savingFiltering(ActionEvent event) {
+    void clearFiltered(ActionEvent event) {
 
     }
 

@@ -6,7 +6,6 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Pagination?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -56,6 +55,14 @@
                         <Font name="Tw Cen MT Bold" size="12.0" />
                      </font>
                   </Label>
+                  <Button fx:id="clearing" layoutX="1092.0" layoutY="45.0" mnemonicParsing="false" onAction="#clearFiltered" prefHeight="30.0" prefWidth="76.0" style="-fx-background-color: #ffffff;" text="Очистить" textFill="#37474f" AnchorPane.leftAnchor="1089.0" AnchorPane.topAnchor="43.0">
+                     <font>
+                        <Font name="Tw Cen MT Bold" size="12.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </Button>
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="750.0" prefWidth="290.0" style="-fx-background-color: #ff9c1a;">
@@ -108,17 +115,7 @@
             </AnchorPane>
             <Line endX="-189.5999755859375" endY="583.7999877929688" layoutX="480.0" layoutY="165.0" startX="-189.5999755859375" startY="-165.0" stroke="WHITE" />
             <Pagination fx:id="pagination" prefHeight="562.0" prefWidth="890.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="106.0" />
-            <TableView fx:id="apartmentsTable" layoutX="300.0" layoutY="112.0" onSort="#sortApartmentsTable" prefHeight="481.0" prefWidth="890.0" style="-fx-border-color: #ff9c1a; -fx-background-color: #ffffff;" AnchorPane.bottomAnchor="142.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="106.0">
-               <columns>
-                  <TableColumn fx:id="tableComplex" prefWidth="179.0" style="-fx-background-color: #ff9c1a;" text="Жилой комплекс" />
-                  <TableColumn fx:id="tableAddress" prefWidth="220.0" style="-fx-background-color: #ff9c1a;" text="Адрес" />
-                  <TableColumn fx:id="tableArea" prefWidth="104.0" style="-fx-background-color: #ff9c1a;" text="Площадь кв." />
-                  <TableColumn fx:id="tableNumberRooms" prefWidth="94.0" style="-fx-background-color: #ff9c1a;" text="Кол-во комнат" />
-                  <TableColumn fx:id="tablePorch" prefWidth="55.0" style="-fx-background-color: #ff9c1a;" text="Секция" />
-                  <TableColumn fx:id="tableFloor" prefWidth="55.0" style="-fx-background-color: #ff9c1a;" text="Этаж" />
-                  <TableColumn fx:id="tableStatus" prefWidth="179.0" style="-fx-background-color: #ff9c1a;" text="Статус" />
-               </columns>
-            </TableView>
+            <TableView fx:id="apartmentsTable" layoutX="300.0" layoutY="112.0" onSort="#sortApartmentsTable" prefHeight="481.0" prefWidth="890.0" style="-fx-border-color: #ff9c1a; -fx-background-color: #ffffff;" AnchorPane.bottomAnchor="142.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="106.0" />
             <Button fx:id="editing" layoutX="528.0" layoutY="688.0" mnemonicParsing="false" onAction="#edit" prefHeight="38.0" prefWidth="180.0" style="-fx-background-color: #ff9c1a;" text="Редактировать" textFill="#37474f" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="402.0">
                <font>
                   <Font name="Tw Cen MT Bold" size="14.0" />

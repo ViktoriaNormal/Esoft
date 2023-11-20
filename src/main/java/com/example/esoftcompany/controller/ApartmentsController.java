@@ -69,9 +69,6 @@ public class ApartmentsController extends Load implements Initializable {
     private Button navReporting;
 
     @FXML
-    private Button saving;
-
-    @FXML
     private TableView<Apartment> apartmentsTable;
 
     @FXML
@@ -105,7 +102,10 @@ public class ApartmentsController extends Load implements Initializable {
     private ChoiceBox<?> status;
 
     @FXML
-    void savingFiltering(ActionEvent event) {
+    private Button clearing;
+
+    @FXML
+    void clearFiltered(ActionEvent event) {
 
     }
 
