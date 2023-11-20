@@ -14,10 +14,10 @@ public class LivingComplexContainer {
         complexes = FXCollections.observableList(livingComplexDao.sortFindAll());
     }
 
-//    public LivingComplexContainer(String status, String city) {
-//        LivingComplexDao livingComplexDao = new LivingComplexDao();
-//        complexes = FXCollections.observableList(livingComplexDao.filteredComplexes(status, city));
-//    }
+    public LivingComplexContainer(String status, String city) {
+        LivingComplexDao livingComplexDao = new LivingComplexDao();
+        complexes = FXCollections.observableList(livingComplexDao.filteredComplexes(status, city));
+    }
 
 
     public ObservableList<LivingComplex> getComplexes() {
